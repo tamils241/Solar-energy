@@ -2099,7 +2099,7 @@ body.dark-mode .section-green-tint.section-divider-wave {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   position: relative;
   z-index: 1;
@@ -3996,7 +3996,7 @@ body.dark-mode .section-contact-adv {
   .about-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid { grid-template-columns: repeat(3, 1fr); }
   .process-grid::before { display: none; }
