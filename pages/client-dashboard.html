@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Stackly Solar Energy client dashboard - monitor your solar production, savings, and account.">
+  <title>My Dashboard - Stackly Solar Energy</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .dash-wrapper { display: flex; height: calc(100vh - 70px); margin-top: 70px; overflow: hidden; }
+    .dash-sidebar { width: 260px; background: var(--dark-blue); padding: 30px 20px; flex-shrink: 0; overflow-y: auto; height: 100%; }
+    .dash-sidebar h4 { color: var(--yellow); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin: 25px 0 12px 10px; }
+    .dash-sidebar h4:first-of-type { margin-top: 0; }
+    .dash-sidebar a { display: flex; align-items: center; gap: 12px; padding: 12px 15px; color: rgba(255,255,255,0.6); border-radius: var(--radius-sm); transition: var(--transition); font-size: 0.9rem; }
+    .dash-sidebar a:hover, .dash-sidebar a.active { background: rgba(245,185,32,0.1); color: var(--yellow); }
+    .dash-sidebar a.active { border-left: 3px solid var(--yellow); }
+    .dash-main { flex: 1; background: #f4f6f9; padding: 30px; overflow-y: auto; height: 100%; }
+    .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+    .dash-header h1 { font-size: 1.6rem; }
+    .dash-header h1 span { color: var(--green); }
+    .dash-header .user-greeting { color: var(--gray); font-size: 0.9rem; }
+    .dash-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 25px; }
+    .dash-card { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); border: 1px solid var(--gray-light); }
+    .dash-card .label { font-size: 0.82rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .dash-card .value { font-size: 2rem; font-weight: 800; color: var(--dark-blue); }
+    .dash-card .value.green { color: var(--green); }
+    .dash-card .value.yellow { color: var(--yellow-dark); }
+    .dash-card .sub { font-size: 0.85rem; color: var(--gray); margin-top: 5px; }
+    .dash-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+    .dash-panel { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); border: 1px solid var(--gray-light); }
+    .dash-panel h3 { font-size: 1.1rem; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--green); display: inline-block; }
+    .status-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--gray-light); }
+    .status-row:last-child { border: none; }
+    .status-row .stat-label { font-size: 0.9rem; color: var(--gray-dark); }
+    .status-row .stat-value { font-weight: 700; color: var(--dark-blue); }
+    .status-bar { height: 8px; background: var(--gray-light); border-radius: 10px; margin-top: 12px; overflow: hidden; }
+    .status-bar .fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--green), var(--yellow)); }
+    .badge { padding: 4px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; }
+    .badge-green { background: rgba(15,139,58,0.12); color: var(--green); }
+    .badge-yellow { background: rgba(245,185,32,0.15); color: var(--yellow-dark); }
+    .badge-blue { background: rgba(15,139,58,0.08); color: var(--dark-blue); }
+    .activity-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-light); }
+    .activity-item:last-child { border: none; }
+    .activity-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
+    .activity-dot.yellow { background: var(--yellow); }
+    .activity-item p { font-size: 0.88rem; color: var(--gray-dark); }
+    .activity-item .time { font-size: 0.78rem; color: var(--gray); margin-top: 3px; }
+    @media (max-width:1024px) { .dash-cards { grid-template-columns: repeat(2,1fr); } .dash-grid { grid-template-columns: 1fr; } }
+    @media (max-width:768px) {
+      .dash-wrapper { flex-direction: column; }
+      .dash-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 70px); overflow: visible; }
+      .dash-sidebar { width: 100%; padding: 15px; display: flex; flex-wrap: wrap; gap: 5px; overflow-y: visible; height: auto; }
+      .dash-sidebar h4 { display: none; }
+      .dash-main { padding: 20px 15px; }
+      .dash-header h1 { font-size: 1.3rem; }
+      .dash-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .dash-card { padding: 18px; }
+      .dash-card .value { font-size: 1.4rem; }
+    }
+    @media (max-width:480px) { .dash-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-sun"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <header class="header" id="header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+        <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="mobile-only-nav"><a href="client-dashboard.html">Dashboard</a></li>
+        <li class="mobile-only-nav"><a href="login.html">Logout</a></li>
+        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
+      </ul>
+      <div class="nav-buttons" style="display:flex;align-items:center;gap:15px;">
+        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode" style="width:36px;height:36px;font-size:1rem;">&#9790;</button>
+        <span id="dashUserName" style="color:var(--white);font-weight:600;font-size:0.95rem;">Client</span>
+        <a href="login.html" class="btn btn-outline" style="padding:8px 18px;font-size:0.82rem;">Logout</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="dash-wrapper">
+    <aside class="dash-sidebar">
+      <div style="text-align:center;padding:10px 0 20px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:15px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--yellow));display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:1.2rem;font-weight:700;color:var(--white);">S</div>
+        <div id="sidebarUserName" style="color:var(--white);font-weight:600;font-size:0.95rem;">Client</div>
+        <small style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Client</small>
+      </div>
+      <h4>My Account</h4>
+      <a href="client-dashboard.html" class="active">&#128202; Dashboard</a>
+      <a href="#">&#9728; My System</a>
+      <a href="#">&#128200; Energy Production</a>
+      <h4>Billing</h4>
+      <a href="#">&#128196; Invoices</a>
+      <a href="#">&#128176; Payments</a>
+      <h4>Support</h4>
+      <a href="contact.html">&#128222; Contact Support</a>
+      <a href="#">&#128172; My Tickets</a>
+      <h4>Account</h4>
+      <a href="#">&#128100; Profile</a>
+      <a href="login.html">&#128682; Logout</a>
+    </aside>
+
+    <main class="dash-main">
+      <div class="dash-header">
+        <div>
+          <h1>My <span>Dashboard</span></h1>
+          <p class="user-greeting">Welcome back, <strong>Client</strong>. Here's your solar energy overview.</p>
+        </div>
+        <a href="contact.html" class="btn btn-green">&#128222; Get Support</a>
+      </div>
+
+      <div class="dash-cards">
+        <div class="dash-card">
+          <div class="icon">&#9889;</div>
+          <div class="label">Today's Production</div>
+          <div class="value green">32.4 kWh</div>
+          <div class="sub">&#9650; 8% above yesterday</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#128176;</div>
+          <div class="label">Total Savings</div>
+          <div class="value yellow">$4,280</div>
+          <div class="sub">Since installation</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#127758;</div>
+          <div class="label">CO&#8322; Offset</div>
+          <div class="value green">6.2 tons</div>
+          <div class="sub">Equivalent to 150 trees</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#127970;</div>
+          <div class="label">System Size</div>
+          <div class="value">8.2 kW</div>
+          <div class="sub">24 panels installed</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-panel">
+          <h3>&#9889; System Performance</h3>
+          <div class="status-row">
+            <span class="stat-label">&#9728; Solar Production Today</span>
+            <span class="stat-value">32.4 kWh</span>
+          </div>
+          <div class="status-bar"><div class="fill" style="width:78%;"></div></div>
+          <div class="status-row">
+            <span class="stat-label">&#127970; Total Energy Produced</span>
+            <span class="stat-value">18,240 kWh</span>
+          </div>
+          <div class="status-row">
+            <span class="stat-label">&#127758; CO&#8322; Emissions Avoided</span>
+            <span class="stat-value">6.2 tons</span>
+          </div>
+          <div class="status-row">
+            <span class="stat-label">&#128176; Total Saved on Bills</span>
+            <span class="stat-value">$4,280</span>
+          </div>
+          <div class="status-row">
+            <span class="stat-label">&#128200; Grid Energy Used Today</span>
+            <span class="stat-value">2.1 kWh</span>
+          </div>
+          <div class="status-bar"><div class="fill" style="width:15%;background:var(--yellow);"></div></div>
+        </div>
+
+        <div class="dash-panel">
+          <h3>&#128340; Recent Activity</h3>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>System produced <strong>32.4 kWh</strong> today</p>
+              <div class="time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>Monthly savings report available</p>
+              <div class="time">1 day ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot yellow"></span>
+            <div>
+              <p>Routine maintenance scheduled</p>
+              <div class="time">3 days ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>System passed performance check</p>
+              <div class="time">1 week ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:25px;">
+        <div class="dash-panel">
+          <h3>&#128228; My Support Tickets</h3>
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr><th style="text-align:left;padding:12px 10px;color:var(--gray);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--gray-light);">Ticket</th>
+                  <th style="text-align:left;padding:12px 10px;color:var(--gray);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--gray-light);">Date</th>
+                  <th style="text-align:left;padding:12px 10px;color:var(--gray);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--gray-light);">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">System Monitoring Query</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">Jun 5</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);"><span class="badge badge-green">Resolved</span></td></tr>
+              <tr><td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">Battery Performance Check</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">May 28</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);"><span class="badge badge-yellow">In Progress</span></td></tr>
+              <tr><td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">Panel Cleaning Request</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);">May 20</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid var(--gray-light);"><span class="badge badge-green">Resolved</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

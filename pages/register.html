@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Stackly Solar Energy account and start your journey toward clean, affordable solar power.">
+  <title>Register - Stackly Solar Energy</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-sun"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+        <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="mobile-only-nav"><a href="login.html" class="btn btn-outline mobile-nav-btn">Login</a></li>
+        <li class="mobile-only-nav"><a href="register.html" class="btn btn-primary mobile-nav-btn">Register</a></li>
+        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Register</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- REGISTER -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-form-side">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+          <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+        <h2>Create Your Account</h2>
+        <p>Join thousands of smart homeowners saving with solar</p>
+
+        <form class="auth-form" id="registerForm">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">&#128100;</span>
+              <input type="text" id="fullName" placeholder="John Doe" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email Address <span class="required">*</span></label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">&#9993;</span>
+              <input type="email" id="regEmail" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">&#128222;</span>
+              <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Password <span class="required">*</span></label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">&#128273;</span>
+              <input type="password" id="regPassword" placeholder="Create a strong password (min. 8 chars)" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">&#128273;</span>
+              <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regRole">I am registering as <span class="required">*</span></label>
+            <select id="regRole" required>
+              <option value="">Select your role</option>
+              <option value="client">Client</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="accountType">I'm interested in</label>
+            <select id="accountType">
+              <option value="residential">Residential Solar</option>
+              <option value="commercial">Commercial Solar</option>
+              <option value="storage">Battery Storage</option>
+            </select>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+          </div>
+          <button type="submit" class="btn btn-green">Create Account</button>
+        </form>
+
+        <div class="auth-divider">or sign up with</div>
+
+        <div class="auth-social">
+          <button>&#120156; Google</button>
+          <button>&#120143; Facebook</button>
+        </div>
+
+        <p class="auth-alt">
+          Already have an account? <a href="login.html">Sign in</a>
+        </p>
+      </div>
+      <div class="auth-image-side">
+        <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6c?w=400&h=400&fit=crop&crop=center" alt="Solar panel installation">
+        <h3>Start Saving Today</h3>
+        <p>Create your account and get a free solar assessment. See how much you can save with Stackly Solar.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

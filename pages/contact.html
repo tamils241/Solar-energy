@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Stackly Solar Energy for a free solar consultation, quote, or customer support. We're here to help.">
+  <title>Contact Us - Stackly Solar Energy</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-sun"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+        <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="mobile-only-nav"><a href="login.html" class="btn btn-outline mobile-nav-btn">Login</a></li>
+        <li class="mobile-only-nav"><a href="register.html" class="btn btn-primary mobile-nav-btn">Register</a></li>
+        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="register.html" class="btn btn-primary">Register</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Contact <span>Stackly Solar</span></h1>
+    <p>Have questions? We're here to help. Reach out and our team will get back to you within 24 hours.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-green-tint section-contact-adv">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-form fade-up">
+          <h3 style="font-size:1.4rem;margin-bottom:6px;">Send Us a Message</h3>
+          <p style="color:var(--gray);margin-bottom:25px;font-size:0.95rem;">Ready to go solar or have a question? Fill out the form below.</p>
+          <form id="contactPageForm" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" placeholder="John Doe" maxlength="16" onkeypress="return /[A-Za-z\s]/.test(event.key)" required>
+              <span class="error-text">Please enter a valid name (letters only, max 16 characters)</span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+                <span class="error-text">Please enter a valid email</span>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject <span class="required">*</span></label>
+              <select id="subject" required>
+                <option value="">Select a subject</option>
+                <option value="residential">Residential Solar Inquiry</option>
+                <option value="commercial">Commercial Solar Inquiry</option>
+                <option value="quote">Request a Free Quote</option>
+                <option value="support">Customer Support</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="error-text">Please select a subject</span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" rows="5" placeholder="Tell us about your project or question..." required></textarea>
+              <span class="error-text">Please enter your message</span>
+            </div>
+            <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;">&#8594; Send Message</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <div class="contact-info-card fade-up">
+            <div class="contact-info-icon">&#128222;</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+1 (800) SOLAR-01</p>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="contact-info-card fade-up" data-delay="0.1">
+            <div class="contact-info-icon">&#9993;</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@stacklysolar.com</p>
+              <p>support@stacklysolar.com</p>
+            </div>
+          </div>
+          <div class="contact-info-card fade-up" data-delay="0.2">
+            <div class="contact-info-icon">&#128205;</div>
+            <div>
+              <h4>Office Address</h4>
+              <p>123 Solar Drive, Suite 200<br>Green City, CA 90210</p>
+            </div>
+          </div>
+          <div class="contact-info-card fade-up" data-delay="0.3">
+            <div class="contact-info-icon">&#128338;</div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Mon - Fri: 8:00 AM - 7:00 PM</p>
+              <p>Saturday: 9:00 AM - 5:00 PM</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+          <div class="contact-map fade-up" data-delay="0.4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.8033403875664!2d-118.2567!3d34.0419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254ccf92!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy" title="Stackly Solar Energy Office Location"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter">
+    <div class="newsletter-bg-shapes">
+      <span class="shape shape-1">&#9728;</span>
+      <span class="shape shape-2">&#9889;</span>
+      <span class="shape shape-3">&#127758;</span>
+      <span class="shape shape-4">&#127970;</span>
+    </div>
+    <div class="newsletter-content fade-up">
+      <span class="newsletter-badge"> Stay Updated</span>
+      <h2>Stay Connected with <span class="text-yellow">Stackly Solar</span></h2>
+      <p>Subscribe for solar tips, industry news, and exclusive offers delivered to your inbox.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email for newsletter">
+        <button type="submit" class="btn">Subscribe </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+          <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+        <p>Stackly Solar Energy is a premier provider of residential and commercial solar solutions, making clean energy accessible for everyone.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">&#120143;</a>
+          <a href="#" aria-label="Twitter">&#120156;</a>
+          <a href="#" aria-label="Instagram">&#120157;</a>
+          <a href="#" aria-label="LinkedIn">&#120158;</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">&#9656; Home</a></li>
+          <li><a href="about.html">&#9656; About Us</a></li>
+          <li><a href="services.html">&#9656; Services</a></li>
+          <li><a href="projects.html">&#9656; Projects</a></li>
+          <li><a href="contact.html">&#9656; Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">&#9656; Residential Solar</a></li>
+          <li><a href="services.html">&#9656; Commercial Solar</a></li>
+          <li><a href="services.html">&#9656; Battery Storage</a></li>
+          <li><a href="services.html">&#9656; Solar Maintenance</a></li>
+          <li><a href="services.html">&#9656; Solar Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">&#9656; Contact Us</a></li>
+          <li><a href="#">&#9656; Privacy Policy</a></li>
+          <li><a href="#">&#9656; Terms of Service</a></li>
+          <li><a href="#">&#9656; Warranty Info</a></li>
+          <li><a href="login.html">&#9656; Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear">2026</span> Stackly Solar Energy. All rights reserved.</p>
+      <p>Powered by the sun &#9728;</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Solar Energy - Power your future with clean, renewable solar energy. Residential & commercial solar installation, battery storage, and maintenance.">
+  <meta name="keywords" content="solar energy, solar panels, renewable energy, solar installation, battery storage, green energy">
+  <title>Stackly Solar Energy | Power Your Future with Clean Energy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-sun"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <!-- =============================================
+       1. HEADER - Navigation
+       ============================================= -->
+  <header class="header" id="header">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="logo" aria-label="Stackly Solar Energy Home">
+        <img src="images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+        <span class="logo-text"><span>Solar</span> Energy</span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+        <li role="none"><a href="pages/about.html" role="menuitem">About</a></li>
+        <li role="none"><a href="pages/services.html" role="menuitem">Services</a></li>
+        <li role="none"><a href="pages/projects.html" role="menuitem">Projects</a></li>
+        <li role="none"><a href="pages/contact.html" role="menuitem">Contact</a></li>
+        <li role="none" class="mobile-only-nav"><a href="pages/login.html" class="btn btn-outline mobile-nav-btn" role="menuitem">Login</a></li>
+        <li role="none" class="mobile-only-nav"><a href="pages/register.html" class="btn btn-primary mobile-nav-btn" role="menuitem">Register</a></li>
+        <li role="none" class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
+        <a href="pages/login.html" class="btn btn-outline">Login</a>
+        <a href="pages/register.html" class="btn btn-primary">Register</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       2. HERO SECTION
+       ============================================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/background.webp" alt="Solar panels installed on a rooftop under bright sunlight" loading="lazy">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">&#9889; Trusted Solar Energy Partner Since 2015</div>
+        <h1>Power Your Future with <span>Clean Solar Energy</span></h1>
+        <p>Stackly Solar Energy delivers cutting-edge solar solutions for homes and businesses. Slash your electricity bills, reduce your carbon footprint, and secure energy independence with our premium solar installations.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary"> Get Free Quote</a>
+          <a href="#about" class="btn btn-outline">Learn More </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll Down</span>
+      <span class="arrow">&#8595;</span>
+    </div>
+  </section>
+
+  <!-- =============================================
+       3. ABOUT US
+       ============================================= -->
+  <section class="section section-green-tint section-divider-wave section-about" id="about">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag"> About Stackly Solar</span>
+        <h2>Leading the Way in <span>Renewable Energy</span></h2>
+        <p>With years of experience and thousands of successful installations, we are committed to powering a cleaner, greener future.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image fade-left">
+          <img src="images/about.webp" alt="Solar panel installation team working on a rooftop" loading="lazy">
+          <div class="about-exp-badge">
+            <span class="num">25+</span>
+            Years Experience
+          </div>
+        </div>
+        <div class="about-content fade-right">
+          <span class="about-tagline">Powering Tomorrow, Today</span>
+          <h3>Our Mission: Clean Energy for Everyone</h3>
+          <p>Stackly Solar Energy was founded with a single vision — to make solar power accessible, affordable, and reliable for every home and business. We believe the transition to renewable energy is not just an environmental responsibility but a smart financial decision.</p>
+          <p>Our team of NABCEP-certified experts has installed over 5,000 solar systems, helping families and businesses save millions on energy costs while reducing their environmental impact.</p>
+          <div class="about-mission">
+            <div class="mission-item">
+              <span class="icon">&#127758;</span>
+              <div>
+                <h4>Our Vision</h4>
+                <p>A world powered entirely by renewable energy.</p>
+              </div>
+            </div>
+            <div class="mission-item">
+              <span class="icon">&#128640;</span>
+              <div>
+                <h4>Our Mission</h4>
+                <p>Make solar energy accessible and affordable for all.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       4. SERVICES SECTION
+       ============================================= -->
+  <section class="section section-gray section-divider-wave" id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">What We Offer</span>
+        <h2>Our Solar <span>Services</span></h2>
+        <p>End-to-end solar solutions designed to maximize your energy savings and peace of mind.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up" data-delay="0">
+          <span class="service-num">01</span>
+          <div class="service-icon">&#127970;</div>
+          <h3>Residential Solar Installation</h3>
+          <p>Custom solar panel systems for your home. Reduce electricity bills by up to 70% and increase property value with our premium residential solutions.</p>
+        </div>
+        <div class="service-card fade-up" data-delay="100">
+          <span class="service-num">02</span>
+          <div class="service-icon">&#127970;</div>
+          <h3>Commercial Solar Solutions</h3>
+          <p>Large-scale solar installations for businesses, schools, and government facilities. Lower operating costs and meet sustainability targets.</p>
+        </div>
+        <div class="service-card fade-up" data-delay="200">
+          <span class="service-num">03</span>
+          <div class="service-icon">&#128295;</div>
+          <h3>Solar Maintenance</h3>
+          <p>Keep your system running at peak efficiency with our comprehensive maintenance plans including cleaning, inspections, and repairs.</p>
+        </div>
+        <div class="service-card fade-up" data-delay="300">
+          <span class="service-num">04</span>
+          <div class="service-icon">&#9889;</div>
+          <h3>Battery Storage Systems</h3>
+          <p>Store excess solar energy for use during peak hours, cloudy days, or power outages. Achieve true energy independence.</p>
+        </div>
+        <div class="service-card fade-up" data-delay="400">
+          <span class="service-num">05</span>
+          <div class="service-icon">&#128200;</div>
+          <h3>Solar Consultation</h3>
+          <p>Not sure where to start? Our experts provide free consultations, site assessments, and custom system designs tailored to your needs.</p>
+        </div>
+        <div class="service-card fade-up" data-delay="500">
+          <span class="service-num">06</span>
+          <div class="service-icon">&#128736;</div>
+          <h3>Energy Monitoring</h3>
+          <p>Track your solar production and consumption in real-time with our smart monitoring platform. Get detailed insights and alerts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       5. WHY CHOOSE US
+       ============================================= -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag"> Why Stackly Solar</span>
+        <h2>Why Choose <span>Stackly Solar</span></h2>
+        <p>We stand behind our work with unmatched quality, service, and expertise.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card fade-up" data-delay="0">
+          <div class="why-icon">&#128188;</div>
+          <div class="why-stat">#1</div>
+          <h4>Certified Experts</h4>
+          <p>NABCEP-certified technicians with years of hands-on solar installation experience.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="100">
+          <div class="why-icon">&#128176;</div>
+          <div class="why-stat">-70%</div>
+          <h4>Affordable Pricing</h4>
+          <p>Competitive pricing and flexible financing options to fit every budget.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="200">
+          <div class="why-icon">&#128200;</div>
+          <div class="why-stat">70%</div>
+          <h4>Energy Savings</h4>
+          <p>Slash your electricity bills by up to 70% with our high-efficiency solar systems.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="300">
+          <div class="why-icon">&#128222;</div>
+          <div class="why-stat">24/7</div>
+          <h4>24/7 Support</h4>
+          <p>Round-the-clock customer support and monitoring for complete peace of mind.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="400">
+          <div class="why-icon">&#127758;</div>
+          <div class="why-stat">2K+</div>
+          <h4>Eco-Friendly Solutions</h4>
+          <p>Sustainable energy solutions that reduce carbon footprint and preserve the planet.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="0">
+          <div class="why-icon">&#9889;</div>
+          <div class="why-stat">98%</div>
+          <h4>Premium Components</h4>
+          <p>Top-tier solar panels and inverters with 98% efficiency ratings for maximum power output.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="100">
+          <div class="why-icon">&#128737;</div>
+          <div class="why-stat">25yr</div>
+          <h4>Warranty Protection</h4>
+          <p>Industry-leading 25-year performance warranty on panels and 10-year workmanship guarantee.</p>
+        </div>
+        <div class="why-card fade-up" data-delay="200">
+          <div class="why-icon">&#128736;</div>
+          <div class="why-stat">1-Day</div>
+          <h4>Seamless Installation</h4>
+          <p>Most residential installations completed in just one day with minimal disruption to your routine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       6. SOLAR BENEFITS
+       ============================================= -->
+  <section class="section section-green-tint section-divider-wave">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag"> Benefits</span>
+        <h2>Why Go <span>Solar?</span></h2>
+        <p>Discover the financial and environmental advantages of switching to solar energy.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up" data-delay="0">
+          <div class="benefit-icon">&#128176;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">-70%</span>
+            <h4>Lower Electricity Bills</h4>
+            <p>Generate your own power and reduce monthly utility costs by up to 70%. Start saving from day one.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="100">
+          <div class="benefit-icon">&#9889;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">100%</span>
+            <h4>Renewable Energy</h4>
+            <p>Solar power is clean, infinite, and sustainable. Reduce dependence on fossil fuels and volatile energy prices.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="200">
+          <div class="benefit-icon">&#127795;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">3-4T</span>
+            <h4>Reduced Carbon Footprint</h4>
+            <p>A typical home solar system offsets 3-4 tons of CO2 annually — equivalent to planting 100+ trees each year.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="0">
+          <div class="benefit-icon">&#128188;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">30%</span>
+            <h4>Government Incentives</h4>
+            <p>Take advantage of federal tax credits (30%), state rebates, and net metering programs to reduce costs.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="100">
+          <div class="benefit-icon">&#127970;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">+20%</span>
+            <h4>Increased Property Value</h4>
+            <p>Homes with solar systems sell 20% faster and at a premium compared to non-solar properties.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="200">
+          <div class="benefit-icon">&#128200;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">24/7</span>
+            <h4>Energy Independence</h4>
+            <p>Protect yourself from rising utility rates and grid outages with your own power generation and storage.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="0">
+          <div class="benefit-icon">&#128225;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">Real-time</span>
+            <h4>Smart Energy Monitoring</h4>
+            <p>Track your solar production, consumption, and savings in real-time with our intuitive mobile app and web dashboard.</p>
+          </div>
+        </div>
+        <div class="benefit-card fade-up" data-delay="100">
+          <div class="benefit-icon">&#128295;</div>
+          <div class="benefit-info">
+            <span class="benefit-stat">Minimal</span>
+            <h4>Hassle-Free Maintenance</h4>
+            <p>Solar panels require little upkeep. Rain cleans most debris, and our monitoring alerts you if anything needs attention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       7. STATISTICS COUNTER
+       ============================================= -->
+   <section class="section stats-section">
+    <div class="floating-dots">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag"> Our Impact</span>
+        <h2 style="color: aliceblue;">Stackly Solar By The <span>Numbers</span></h2>
+        <p>Our track record speaks for itself. Here's what we've achieved together with our customers.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#127970;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="5000">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">Projects Completed</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#128101;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="4800">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">Happy Customers</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#9728;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="15000">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">Solar Panels Installed</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#9889;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="12000000">0</span><span class="suffix">kWh</span>
+          </div>
+          <div class="stat-label">Energy Generated</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#127795;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="120000">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">CO&#8322; Offset (tons)</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36"></circle>
+              <circle class="progress" cx="40" cy="40" r="36"></circle>
+            </svg>
+            <div class="stat-icon">&#127800;</div>
+          </div>
+          <div class="stat-number">
+            <span class="counter" data-target="150000">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">Trees Planted</div>
+          <div class="stat-progress-bar"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       8. PROJECTS / GALLERY
+       ============================================= -->
+  <section class="section section-light" id="projects">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag"> Our Work</span>
+        <h2>Recent Solar <span>Installations</span></h2>
+        <p>Browse our portfolio of residential and commercial solar projects.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-item fade-up" data-delay="0">
+          <img src="images/8.2kw.webp" alt="Residential solar panel installation" loading="lazy">
+          <span class="project-badge">Residential</span>
+          <div class="project-overlay">
+            <h4>Greenwood Residence</h4>
+            <p>8.2 kW System</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="100">
+          <img src="images/150kw.webp" alt="Commercial solar array" loading="lazy">
+          <span class="project-badge">Commercial</span>
+          <div class="project-overlay">
+            <h4>Sunset Office Park</h4>
+            <p>150 kW Commercial System</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="200">
+          <img src="images/13.5kw.webp" alt="Solar battery storage system" loading="lazy">
+          <span class="project-badge">Storage</span>
+          <div class="project-overlay">
+            <h4>Hillside Battery Storage</h4>
+            <p>13.5 kWh Backup</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="0">
+          <img src="images/2mw.webp" alt="Large scale solar farm" loading="lazy">
+          <span class="project-badge">Utility</span>
+          <div class="project-overlay">
+            <h4>Valley View Solar Farm</h4>
+            <p>2 MW Community Project</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="100">
+          <img src="images/12.4kw.webp" alt="Solar panels on modern home" loading="lazy">
+          <span class="project-badge">Residential</span>
+          <div class="project-overlay">
+            <h4>Lakefront Estate</h4>
+            <p>12.4 kW with Battery</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="200">
+          <img src="images/250kw.webp" alt="Solar panel close-up detail" loading="lazy">
+          <span class="project-badge">Commercial</span>
+          <div class="project-overlay">
+            <h4>Downtown High-Rise</h4>
+            <p>250 kW Rooftop Array</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="0">
+          <img src="images/40kw.webp" alt="Solar powered community center" loading="lazy">
+          <span class="project-badge">Community</span>
+          <div class="project-overlay">
+            <h4>Community Center</h4>
+            <p>40 kW Solar Canopy</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="100">
+          <img src="images/photovoltaic-solar-power-panel-field-green-clean-alternative-power-energy-concept-ai-generative_8_11zon.webp" alt="Solar carport installation" loading="lazy">
+          <span class="project-badge">Innovation</span>
+          <div class="project-overlay">
+            <h4>Green Parking Structure</h4>
+            <p>200 kW Solar Carport</p>
+          </div>
+        </div>
+        <div class="project-item fade-up" data-delay="200">
+          <img src="images/beautiful-alternative-energy-plant-with-solar-panels_2_11zon.webp" alt="Solar panels on school rooftop" loading="lazy">
+          <span class="project-badge">Education</span>
+          <div class="project-overlay">
+            <h4>Riverdale School District</h4>
+            <p>500 kW Multi-Site Project</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       9. TESTIMONIALS
+       ============================================= -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Testimonials</span>
+        <h2>What Our <span>Customers Say</span></h2>
+        <p>Hear from homeowners and businesses who made the switch to solar with Stackly.</p>
+      </div>
+      <div class="testimonials-slider fade-up">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card active">
+            <div class="testimonial-badge">Residential</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"Stackly Solar made the entire process seamless. From consultation to installation, their team was professional and knowledgeable. Our electricity bill dropped by 60% in the first month!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0f8b3a,#12a84a);color:#fff;">M</div>
+              <div>
+                <h4>Michael R.</h4>
+                <p>Homeowner, Austin TX</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-badge">Commercial</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"We installed a 150kW system for our office park and the savings have been incredible. Stackly handled all the permitting and grid connection. Highly recommended for commercial projects."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f5b920,#d9a11c);color:#0a1628;">S</div>
+              <div>
+                <h4>Sarah L.</h4>
+                <p>Property Manager, Denver CO</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-badge">Battery Storage</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"The battery storage system from Stackly has been a game-changer. We haven't had a single power outage interruption since installation. Their 24/7 monitoring gives us total peace of mind."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0f8b3a,#f5b920);color:#fff;">D</div>
+              <div>
+                <h4>David K.</h4>
+                <p>Homeowner, Portland OR</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-badge">Small Business</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"Switching to solar was the best business decision we made. Stackly designed a custom 25kW system for our restaurant that cut our operating costs significantly. The ROI has been amazing."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0a1628,#0f8b3a);color:#fff;">M</div>
+              <div>
+                <h4>Maria G.</h4>
+                <p>Restaurant Owner, San Diego CA</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-badge">Education</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"Our school district partnered with Stackly to install solar on 12 buildings. The project came in under budget and ahead of schedule. We're saving $200K annually that goes back into classrooms."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f5b920,#0a1628);color:#fff;">J</div>
+              <div>
+                <h4>James T.</h4>
+                <p>School Board Chair, Chicago IL</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-badge">Residential</div>
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-text">"From the first consultation to final inspection, Stackly exceeded our expectations. The team was courteous, the installation was spotless, and our energy savings started immediately. Truly top-notch."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#12a84a,#f5b920);color:#fff;">R</div>
+              <div>
+                <h4>Rachel W.</h4>
+                <p>Homeowner, Seattle WA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous">&#10094;</button>
+        <button class="slider-arrow next" id="sliderNext" aria-label="Next">&#10095;</button>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       10. FAQ SECTION
+       ============================================= -->
+  <section class="section section-green-tint section-divider-wave" id="faq">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">FAQ</span>
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <p>Everything you need to know about going solar with Stackly.</p>
+      </div>
+      <div class="faq-filters fade-up">
+        <button class="faq-filter active" data-filter="all">All</button>
+        <button class="faq-filter" data-filter="general">General</button>
+        <button class="faq-filter" data-filter="installation">Installation</button>
+        <button class="faq-filter" data-filter="pricing">Pricing</button>
+        <button class="faq-filter" data-filter="technology">Technology</button>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-up" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">General</span> How much can I save by switching to solar?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most homeowners save between <strong>40-70%</strong> on their electricity bills after installing solar panels. The exact savings depend on your location, energy consumption, system size, and local utility rates. On average, our customers recoup their investment within <strong>5-8 years</strong> and enjoy free electricity for decades after. Use our <a href="#contact">free quote calculator</a> to estimate your personal savings.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="installation">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Installation</span> How long does the installation process take?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most residential installations are completed in <strong>1-3 days</strong>. The entire process from initial consultation to grid connection typically takes <strong>4-8 weeks</strong>, which includes site assessment, system design, permitting, installation, and utility approval. We handle all the paperwork to make it hassle-free for you.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="pricing">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Pricing</span> What financing options are available?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>We offer multiple financing options including cash purchases, solar loans with <strong>$0 down</strong>, leases, and Power Purchase Agreements (PPAs). Many customers qualify for zero-down financing with immediate monthly savings. You may also be eligible for the <strong>30% federal tax credit</strong> and state-level incentives that can significantly reduce your upfront cost.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="technology">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Technology</span> What happens on cloudy days or at night?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Solar panels still generate electricity on cloudy days, just at reduced efficiency (typically <strong>10-25%</strong> of full capacity). At night, your system draws power from the grid (if grid-tied) or from your battery storage system. With <strong>net metering</strong>, you can export excess daytime energy and earn credits to offset nighttime usage.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">General</span> Do you offer warranties on your installations?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We stand behind our work with comprehensive warranties: <strong>25-year</strong> performance warranty on solar panels, <strong>10-15 year</strong> warranty on inverters, <strong>10-year</strong> workmanship warranty on installation, and <strong>25-year</strong> warranty on battery storage systems. We also offer optional extended maintenance plans.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="installation">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Installation</span> Will solar panels work on my roof?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Solar panels can be installed on most roof types including asphalt shingle, metal, tile, and flat roofs. Our team conducts a thorough site assessment to evaluate your roof's condition, orientation, shading, and structural integrity. We'll design a custom system that maximizes your energy production regardless of roof type.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="maintenance">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Maintenance</span> How do I maintain my solar panels?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Solar panels require minimal maintenance. Rain naturally cleans most dust and debris, but we recommend professional cleaning <strong>once or twice a year</strong> in dry climates. Our monitoring system tracks performance 24/7, and we'll alert you if anything needs attention. With our maintenance plan, we handle all cleaning, inspections, and repairs.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="pricing">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Pricing</span> What is net metering and how does it work?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Net metering</strong> is a billing arrangement that credits you for excess electricity your solar panels send back to the grid. When your system produces more power than you use, your meter spins backward and you earn credits at the retail rate. You can then use those credits when your system isn't producing (at night or during cloudy periods).</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="technology">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">Technology</span> How efficient are modern solar panels?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Today's premium solar panels achieve efficiency ratings of <strong>20-23%</strong>, meaning they convert that much sunlight into usable electricity. While that number may seem low, a typical home installation with 20-25 panels generates more than enough power for the average household. Our panels use advanced monocrystalline cells with anti-reflective coating for maximum energy capture.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up" data-category="general">
+          <button class="faq-question" aria-expanded="false">
+            <span><span class="faq-tag">General</span> Do I need a battery with my solar system?</span>
+            <span class="icon">&#10010;</span>
+          </button>
+          <div class="faq-answer">
+            <p>A battery is optional but increasingly recommended. Without a battery, you'll still save money through net metering, but you won't have backup power during outages. With a <strong>solar battery</strong>, you can store excess energy for nighttime use, protect against power outages, and maximize your energy independence. Many customers choose to start solar-only and add batteries later.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       12. NEWSLETTER SECTION
+       ============================================= -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-bg-shapes">
+      <span class="shape shape-1">&#9728;</span>
+      <span class="shape shape-2">&#127795;</span>
+      <span class="shape shape-3">&#9889;</span>
+      <span class="shape shape-4">&#9728;</span>
+    </div>
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-badge fade-up">Stay Connected</div>
+        <h2 class="fade-up">Join <span class="text-yellow">5,000+</span> Solar-Powered Subscribers</h2>
+        <p class="fade-up">Get weekly solar tips, industry insights, exclusive offers, and the latest in renewable energy — delivered straight to your inbox.</p>
+        <form class="newsletter-form fade-up" id="newsletterForm">
+          <div class="newsletter-input-group">
+            <input type="text" id="newsletterName" placeholder="Your name" aria-label="Your name" maxlength="20">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email for newsletter">
+          </div>
+          <button type="submit" class="btn">Subscribe </button>
+        </form>
+        <div class="newsletter-benefits fade-up">
+          <div class="newsletter-benefit">
+            <span class="check">&#10003;</span> Weekly solar tips
+          </div>
+          <div class="newsletter-benefit">
+            <span class="check">&#10003;</span> Exclusive offers
+          </div>
+          <div class="newsletter-benefit">
+            <span class="check">&#10003;</span> Industry insights
+          </div>
+          <div class="newsletter-benefit">
+            <span class="check">&#10003;</span> No spam, ever
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       13. FOOTER
+       ============================================= -->
+  <footer class="footer" id="footer">
+    <div class="footer-wave"></div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo" aria-label="Stackly Solar Energy Home">
+          <img src="images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+          <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+        <p>Stackly Solar Energy is a premier provider of residential and commercial solar solutions. We are dedicated to making clean, renewable energy accessible, affordable, and reliable for communities everywhere.</p>
+       
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-fb">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="social-tw">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-ig">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-li">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="social-yt">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Residential Solar</a></li>
+          <li><a href="#services">Commercial Solar</a></li>
+          <li><a href="#services">Battery Storage</a></li>
+          <li><a href="#services">Solar Maintenance</a></li>
+          <li><a href="#services">Solar Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Warranty Info</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear">2026</span> Stackly Solar Energy. All rights reserved. Powered by the sun &#9728;</p>
+      <p>Designed with &#10084; for a greener tomorrow</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

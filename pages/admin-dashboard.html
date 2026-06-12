@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Solar Energy Admin Dashboard - Manage clients, projects, and solar installations.">
+  <title>Admin Dashboard - Stackly Solar Energy</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .dash-wrapper { display: flex; height: calc(100vh - 70px); margin-top: 70px; overflow: hidden; }
+    .dash-sidebar { width: 260px; background: var(--dark-blue); padding: 30px 20px; flex-shrink: 0; overflow-y: auto; height: 100%; }
+    .dash-sidebar h4 { color: var(--yellow); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin: 25px 0 12px 10px; }
+    .dash-sidebar h4:first-of-type { margin-top: 0; }
+    .dash-sidebar a { display: flex; align-items: center; gap: 12px; padding: 12px 15px; color: rgba(255,255,255,0.6); border-radius: var(--radius-sm); transition: var(--transition); font-size: 0.9rem; }
+    .dash-sidebar a:hover, .dash-sidebar a.active { background: rgba(245,185,32,0.1); color: var(--yellow); }
+    .dash-sidebar a.active { border-left: 3px solid var(--yellow); }
+    .dash-main { flex: 1; background: #f4f6f9; padding: 30px; overflow-y: auto; height: 100%; }
+    .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+    .dash-header h1 { font-size: 1.6rem; }
+    .dash-header h1 span { color: var(--green); }
+    .dash-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 30px; }
+    .dash-card { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); border: 1px solid var(--gray-light); }
+    .dash-card .label { font-size: 0.82rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .dash-card .value { font-size: 2rem; font-weight: 800; color: var(--dark-blue); }
+    .dash-card .value span { color: var(--green); }
+    .dash-card .sub { font-size: 0.85rem; color: var(--gray); margin-top: 5px; }
+    .dash-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+    .dash-panel { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); border: 1px solid var(--gray-light); }
+    .dash-panel h3 { font-size: 1.1rem; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--green); display: inline-block; }
+    .dash-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .dash-table th { text-align: left; padding: 12px 10px; color: var(--gray); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--gray-light); }
+    .dash-table td { padding: 12px 10px; border-bottom: 1px solid var(--gray-light); }
+    .dash-table .badge { padding: 4px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; }
+    .badge-green { background: rgba(15,139,58,0.12); color: var(--green); }
+    .badge-yellow { background: rgba(245,185,32,0.15); color: var(--yellow-dark); }
+    .badge-blue { background: rgba(15,139,58,0.08); color: var(--dark-blue); }
+    .activity-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-light); }
+    .activity-item:last-child { border: none; }
+    .activity-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
+    .activity-dot.yellow { background: var(--yellow); }
+    .activity-item p { font-size: 0.88rem; color: var(--gray-dark); }
+    .activity-item .time { font-size: 0.78rem; color: var(--gray); margin-top: 3px; }
+    @media (max-width:1024px) { .dash-cards { grid-template-columns: repeat(2,1fr); } .dash-grid { grid-template-columns: 1fr; } }
+    @media (max-width:768px) {
+      .dash-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 70px); overflow: visible; }
+      .dash-sidebar { width: 100%; padding: 15px; display: flex; flex-wrap: wrap; gap: 5px; overflow-y: visible; height: auto; }
+      .dash-sidebar h4 { display: none; }
+      .dash-main { padding: 20px 15px; }
+      .dash-header h1 { font-size: 1.3rem; }
+      .dash-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .dash-card { padding: 18px; }
+      .dash-card .value { font-size: 1.4rem; }
+      .dash-table { font-size: 0.8rem; }
+      .dash-table th, .dash-table td { padding: 8px 6px; }
+    }
+    @media (max-width:480px) { .dash-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-sun"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <header class="header" id="header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
+        <span class="logo-text"><span>Solar</span> Energy</span>
+        </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="mobile-only-nav"><a href="admin-dashboard.html">Dashboard</a></li>
+        <li class="mobile-only-nav"><a href="login.html">Logout</a></li>
+        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
+      </ul>
+      <div class="nav-buttons" style="display:flex;align-items:center;gap:15px;">
+        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode" style="width:36px;height:36px;font-size:1rem;">&#9790;</button>
+        <span id="dashUserName" style="color:var(--white);font-weight:600;font-size:0.95rem;">Admin</span>
+        <a href="login.html" class="btn btn-outline" style="padding:8px 18px;font-size:0.82rem;">Logout</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="dash-wrapper">
+    <aside class="dash-sidebar">
+      <div style="text-align:center;padding:10px 0 20px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:15px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--yellow));display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:1.2rem;font-weight:700;color:var(--white);">S</div>
+        <div id="sidebarUserName" style="color:var(--white);font-weight:600;font-size:0.95rem;">Admin</div>
+        <small style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Administrator</small>
+      </div>
+      <h4>Main</h4>
+      <a href="admin-dashboard.html" class="active">&#128202; Dashboard</a>
+      <a href="#">&#128101; Clients</a>
+      <a href="#">&#127970; Projects</a>
+      <h4>Management</h4>
+      <a href="#">&#128736; Services</a>
+      <a href="#">&#128196; Quotes</a>
+      <a href="#">&#128176; Payments</a>
+      <a href="#">&#128228; Inquiries</a>
+      <h4>Settings</h4>
+      <a href="#">&#128100; Profile</a>
+      <a href="login.html">&#128682; Logout</a>
+    </aside>
+
+    <main class="dash-main">
+      <div class="dash-header">
+        <div>
+          <h1>Admin <span>Dashboard</span></h1>
+          <p style="color:var(--gray);font-size:0.9rem;">Welcome back, Admin. Here's your solar energy overview.</p>
+        </div>
+        <a href="contact.html" class="btn btn-green">+ New Project</a>
+      </div>
+
+      <div class="dash-cards">
+        <div class="dash-card">
+          <div class="icon">&#128101;</div>
+          <div class="label">Total Clients</div>
+          <div class="value">248</div>
+          <div class="sub">&#9650; 12 this month</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#127970;</div>
+          <div class="label">Active Projects</div>
+          <div class="value">86</div>
+          <div class="sub">&#9650; 8 this month</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#9889;</div>
+          <div class="label">Energy Generated</div>
+          <div class="value">2.4<span>M</span> kWh</div>
+          <div class="sub">This quarter</div>
+        </div>
+        <div class="dash-card">
+          <div class="icon">&#128176;</div>
+          <div class="label">Revenue</div>
+          <div class="value">$1.8<span>M</span></div>
+          <div class="sub">&#9650; 18% vs last year</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-panel">
+          <h3>&#128203; Recent Projects</h3>
+          <table class="dash-table">
+            <thead>
+              <tr><th>Client</th><th>Project</th><th>Status</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Michael R.</td><td>8.2 kW Residential</td><td><span class="badge badge-green">Completed</span></td><td>Jun 8</td></tr>
+              <tr><td>Sarah L.</td><td>150 kW Commercial</td><td><span class="badge badge-yellow">In Progress</span></td><td>Jun 5</td></tr>
+              <tr><td>David K.</td><td>13.5 kWh Battery</td><td><span class="badge badge-yellow">In Progress</span></td><td>Jun 2</td></tr>
+              <tr><td>Greenwood Res.</td><td>8.2 kW System</td><td><span class="badge badge-green">Completed</span></td><td>May 28</td></tr>
+              <tr><td>Sunset Park</td><td>150 kW Array</td><td><span class="badge badge-blue">Pending</span></td><td>May 22</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dash-panel">
+          <h3>&#128340; Recent Activity</h3>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>New client registered: <strong>James Mitchell</strong></p>
+              <div class="time">10 minutes ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot yellow"></span>
+            <div>
+              <p>Project updated: <strong>Sunset Office Park</strong></p>
+              <div class="time">1 hour ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>Payment received: <strong>$12,400</strong></p>
+              <div class="time">3 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot yellow"></span>
+            <div>
+              <p>New inquiry from <strong>Greenfield Corp</strong></p>
+              <div class="time">5 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div>
+              <p>Installation completed: <strong>Oakwood Home</strong></p>
+              <div class="time">1 day ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:25px;">
+        <div class="dash-panel">
+          <h3>&#128228; Recent Inquiries</h3>
+          <table class="dash-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Subject</th><th>Date</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>John D.</td><td>john@email.com</td><td>Residential Quote</td><td>Jun 10</td><td><span class="badge badge-yellow">New</span></td></tr>
+              <tr><td>Emma W.</td><td>emma@email.com</td><td>Commercial Solar</td><td>Jun 9</td><td><span class="badge badge-green">Replied</span></td></tr>
+              <tr><td>Robert K.</td><td>robert@email.com</td><td>Battery Storage</td><td>Jun 8</td><td><span class="badge badge-yellow">New</span></td></tr>
+              <tr><td>Lisa M.</td><td>lisa@email.com</td><td>Maintenance Plan</td><td>Jun 7</td><td><span class="badge badge-green">Replied</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
