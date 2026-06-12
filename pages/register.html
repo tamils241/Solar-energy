@@ -15,35 +15,7 @@
     <div class="loader-text">Loading...</div>
   </div>
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <nav class="navbar">
-      <a href="../index.html" class="logo">
-        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
-        <span class="logo-text"><span>Solar</span> Energy</span>
-        </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="mobile-only-nav"><a href="login.html" class="btn btn-outline mobile-nav-btn">Login</a></li>
-        <li class="mobile-only-nav"><a href="register.html" class="btn btn-primary mobile-nav-btn">Register</a></li>
-        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
-      </ul>
-      <div class="nav-buttons">
-        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
-        <a href="login.html" class="btn btn-outline">Login</a>
-        <a href="register.html" class="btn btn-primary">Register</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
+  <!-- HEADER (hidden on auth pages) -->
 
   <!-- REGISTER -->
   <section class="auth-section">
@@ -61,7 +33,7 @@
             <label for="fullName">Full Name <span class="required">*</span></label>
             <div class="input-icon-wrap">
               <span class="input-icon">&#128100;</span>
-              <input type="text" id="fullName" placeholder="John Doe" required>
+              <input type="text" id="fullName" placeholder="John Doe" pattern="[A-Za-z ]{1,16}" maxlength="16" title="Max 16 alphabetic characters" required>
             </div>
           </div>
           <div class="form-group">
@@ -75,21 +47,21 @@
             <label for="phone">Phone Number</label>
             <div class="input-icon-wrap">
               <span class="input-icon">&#128222;</span>
-              <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+              <input type="tel" id="phone" placeholder="Phone number" pattern="[0-9]{10}" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')" title="Max 19 digits">
             </div>
           </div>
           <div class="form-group">
             <label for="regPassword">Password <span class="required">*</span></label>
             <div class="input-icon-wrap">
               <span class="input-icon">&#128273;</span>
-              <input type="password" id="regPassword" placeholder="Create a strong password (min. 8 chars)" required>
+              <input type="password" id="regPassword" placeholder="Password" pattern="[A-Za-z]{1,8}" maxlength="8" title="Max 8 alphabetic characters only" required>
             </div>
           </div>
           <div class="form-group">
             <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
             <div class="input-icon-wrap">
               <span class="input-icon">&#128273;</span>
-              <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+              <input type="password" id="confirmPassword" placeholder="Confirm your password" pattern="[A-Za-z]{1,8}" maxlength="8" title="Max 8 alphabetic characters only" required>
             </div>
           </div>
           <div class="form-group">
@@ -100,14 +72,7 @@
               <option value="admin">Admin</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="accountType">I'm interested in</label>
-            <select id="accountType">
-              <option value="residential">Residential Solar</option>
-              <option value="commercial">Commercial Solar</option>
-              <option value="storage">Battery Storage</option>
-            </select>
-          </div>
+          
           <div class="form-checkbox">
             <input type="checkbox" id="terms" required>
             <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
@@ -117,17 +82,17 @@
 
         <div class="auth-divider">or sign up with</div>
 
-        <div class="auth-social">
-          <button>&#120156; Google</button>
-          <button>&#120143; Facebook</button>
-        </div>
+    
 
         <p class="auth-alt">
           Already have an account? <a href="login.html">Sign in</a>
+
         </p>
+        <div style="text-align:center; background-color: #04772e; padding: 10px; border-radius: 25px;"><a href="../index.html" style="color: white; text-decoration: none;">Home</a></div>
+        
       </div>
       <div class="auth-image-side">
-        <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6c?w=400&h=400&fit=crop&crop=center" alt="Solar panel installation">
+        <img src="../images/background.webp" alt="Solar panel installation">
         <h3>Start Saving Today</h3>
         <p>Create your account and get a free solar assessment. See how much you can save with Stackly Solar.</p>
       </div>

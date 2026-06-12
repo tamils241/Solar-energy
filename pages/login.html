@@ -15,35 +15,7 @@
     <div class="loader-text">Loading...</div>
   </div>
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <nav class="navbar">
-      <a href="../index.html" class="logo">
-        <img src="../images/logo.webp" alt="Stackly Solar Energy" class="logo-img">
-        <span class="logo-text"><span>Solar</span> Energy</span>
-        </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="mobile-only-nav"><a href="login.html" class="btn btn-outline mobile-nav-btn">Login</a></li>
-        <li class="mobile-only-nav"><a href="register.html" class="btn btn-primary mobile-nav-btn">Register</a></li>
-        <li class="mobile-only-nav"><button class="mobile-dark-toggle" id="mobileDarkToggle">&#9790; Dark Mode</button></li>
-      </ul>
-      <div class="nav-buttons">
-        <button class="dark-toggle desktop-only" id="darkToggle" aria-label="Toggle dark mode">&#9790;</button>
-        <a href="login.html" class="btn btn-outline">Login</a>
-        <a href="register.html" class="btn btn-primary">Register</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
+  <!-- HEADER (hidden on auth pages) -->
 
   <!-- LOGIN -->
   <section class="auth-section">
@@ -76,28 +48,24 @@
             <label for="password">Password <span class="required">*</span></label>
             <div class="input-icon-wrap">
               <span class="input-icon">&#128273;</span>
-              <input type="password" id="password" placeholder="Enter your password" required>
+              <input type="password" id="password" placeholder="Enter your password" pattern="[A-Za-z0-9]{8}" minlength="8" maxlength="8" title="Must be exactly 8 alphanumeric characters (letters and digits only)" required>
             </div>
           </div>
           <div class="form-options">
             <label>
               <input type="checkbox" checked> Remember me
             </label>
-            <a href="#">Forgot password?</a>
+            <a href="404.html">Forgot password?</a>
           </div>
           <button type="submit" class="btn btn-green">Sign In</button>
         </form>
 
         <div class="auth-divider">or continue with</div>
 
-        <div class="auth-social">
-          <button>&#120156; Google</button>
-          <button>&#120143; Facebook</button>
-        </div>
-
         <p class="auth-alt">
           Don't have an account? <a href="register.html">Create one</a>
         </p>
+        <div style="text-align:center; background-color: #04762e; padding: 10px; border-radius: 25px;"><a href="../index.html" style="color: white; text-decoration: none;">Home</a></div>
       </div>
       <div class="auth-image-side">
         <img src="../images/background.webp" alt="Solar panels">

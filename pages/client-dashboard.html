@@ -46,19 +46,45 @@
     .activity-dot.yellow { background: var(--yellow); }
     .activity-item p { font-size: 0.88rem; color: var(--gray-dark); }
     .activity-item .time { font-size: 0.78rem; color: var(--gray); margin-top: 3px; }
-    @media (max-width:1024px) { .dash-cards { grid-template-columns: repeat(2,1fr); } .dash-grid { grid-template-columns: 1fr; } }
+    @media (max-width:1024px) {
+      .dash-cards { grid-template-columns: repeat(2,1fr); gap: 15px; }
+      .dash-grid { grid-template-columns: 1fr; }
+      .dash-main { padding: 25px; }
+    }
     @media (max-width:768px) {
-      .dash-wrapper { flex-direction: column; }
       .dash-wrapper { flex-direction: column; height: auto; min-height: calc(100vh - 70px); overflow: visible; }
-      .dash-sidebar { width: 100%; padding: 15px; display: flex; flex-wrap: wrap; gap: 5px; overflow-y: visible; height: auto; }
+      .dash-sidebar { width: 100%; padding: 12px 15px; display: flex; flex-wrap: wrap; gap: 6px; overflow-y: visible; height: auto; justify-content: center; }
+      .dash-sidebar > div:first-child { display: none; }
       .dash-sidebar h4 { display: none; }
+      .dash-sidebar a { padding: 8px 14px; font-size: 0.82rem; gap: 8px; }
       .dash-main { padding: 20px 15px; }
       .dash-header h1 { font-size: 1.3rem; }
+      .dash-header .user-greeting { font-size: 0.82rem; }
+      .dash-header .btn { padding: 8px 16px; font-size: 0.82rem; }
       .dash-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
       .dash-card { padding: 18px; }
+      .dash-card .icon { font-size: 1.5rem; margin-bottom: 6px; }
+      .dash-card .label { font-size: 0.72rem; }
       .dash-card .value { font-size: 1.4rem; }
+      .dash-card .sub { font-size: 0.75rem; }
+      .dash-panel { padding: 18px; }
+      .dash-panel h3 { font-size: 1rem; }
+      .status-row { padding: 12px 0; }
+      .status-row .stat-label { font-size: 0.82rem; }
+      .status-row .stat-value { font-size: 0.85rem; }
+      .activity-item { padding: 12px 0; gap: 12px; }
+      .activity-item p { font-size: 0.82rem; }
+      table { font-size: 0.82rem !important; display: block; overflow-x: auto; white-space: nowrap; }
     }
-    @media (max-width:480px) { .dash-cards { grid-template-columns: 1fr; } }
+    @media (max-width:480px) {
+      .dash-cards { grid-template-columns: 1fr; gap: 10px; }
+      .dash-card { padding: 15px; }
+      .dash-card .value { font-size: 1.3rem; }
+      .dash-sidebar { gap: 4px; padding: 10px; }
+      .dash-sidebar a { padding: 6px 10px; font-size: 0.75rem; gap: 6px; }
+      .dash-main { padding: 15px 12px; }
+      .dash-header { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -101,16 +127,16 @@
       </div>
       <h4>My Account</h4>
       <a href="client-dashboard.html" class="active">&#128202; Dashboard</a>
-      <a href="#">&#9728; My System</a>
-      <a href="#">&#128200; Energy Production</a>
+      <a href="404.html">&#9728; My System</a>
+      <a href="404.html">&#128200; Energy Production</a>
       <h4>Billing</h4>
-      <a href="#">&#128196; Invoices</a>
-      <a href="#">&#128176; Payments</a>
+      <a href="404.html">&#128196; Invoices</a>
+      <a href="404.html">&#128176; Payments</a>
       <h4>Support</h4>
-      <a href="contact.html">&#128222; Contact Support</a>
-      <a href="#">&#128172; My Tickets</a>
+      <a href="404.html">&#128222; Contact Support</a>
+      <a href="404.html">&#128172; My Tickets</a>
       <h4>Account</h4>
-      <a href="#">&#128100; Profile</a>
+      <a href="404.html">&#128100; Profile</a>
       <a href="login.html">&#128682; Logout</a>
     </aside>
 
@@ -120,7 +146,7 @@
           <h1>My <span>Dashboard</span></h1>
           <p class="user-greeting">Welcome back, <strong>Client</strong>. Here's your solar energy overview.</p>
         </div>
-        <a href="contact.html" class="btn btn-green">&#128222; Get Support</a>
+        <a href="404.html" class="btn btn-green">&#128222; Get Support</a>
       </div>
 
       <div class="dash-cards">
